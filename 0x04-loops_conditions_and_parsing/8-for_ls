@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# This script lists non-hidden files/directories and prints part after the first dash
+# List non-hidden files/directories; print part after first dash if it exists, else whole name
 
 for file in *; do
-  # Check if the filename contains a dash
   if [[ "$file" == *-* ]]; then
-    # Print the part after the first dash
     echo "${file#*-}"
+  else
+    echo "$file"
   fi
 done
