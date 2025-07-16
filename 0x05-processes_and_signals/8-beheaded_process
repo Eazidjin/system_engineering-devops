@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Kill the 7-highlander process with SIGKILL (signal 9)
+# Prints "To infinity and beyond" every 2 seconds and prints OK on SIGTERM without exiting
 
-pid=$(pgrep -f 7-highlander)
+trap 'echo OK' SIGTERM
 
-if [ -n "$pid" ]; then
-  kill -9 "$pid"
-fi
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
+done
